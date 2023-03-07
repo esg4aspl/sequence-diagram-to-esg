@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+'skinparam monochrome true
+skinparam shadowing false
+skinparam ParticipantBackgroundColor white
+'autonumber
+
+loop guard1
+A -> B: message1
+note over B, A
+Inner frames are
+ represented as
+messages with no
+ source and target
+end note
+A X<->X B: optSubFrame
+end
+
+@enduml

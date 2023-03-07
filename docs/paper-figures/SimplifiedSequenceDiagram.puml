@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam ClassBackgroundColor white
+skinparam shadowing false
+
+
+abstract class Frame << (A,white) >>{
+}
+
+abstract class Element << (A,white) >>{
+    +convertToESG(): String
+}
+class Message << (C,white) >>
+class Object << (C,white) >>{
+    +name: String
+}
+
+
+Frame --|> Element
+Message --|> Element
+
+Frame o-- Element
+
+Object <- Message: source
+Object <- Message: target
+
+
+class sd << (C,white) >>
+class loop << (C,white) >>
+class opt << (C,white) >>
+class alt << (C,white) >>
+
+sd --|> Frame
+loop --|> Frame
+opt --|> Frame
+alt --|> Frame
+
+hide member
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+'skinparam monochrome true
+skinparam shadowing false
+skinparam ParticipantBackgroundColor white
+'autonumber
+
+opt a guard
+A -> B: message1
+B -> A: message2
+end
+@enduml

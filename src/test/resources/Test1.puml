@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+Alice -> Bob: Authentication Request
+Bob -> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice -> Bob: another authentication Response
+
+opt a case
+    Alice->Bob: Conditional
+    Bob->Alice: Another Conditional
+    opt nested guard
+        Bob->Alice: Deep Conditional
+    end
+end
+@enduml

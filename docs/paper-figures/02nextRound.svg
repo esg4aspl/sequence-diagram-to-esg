@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="280px" preserveAspectRatio="none" style="width:339px;height:280px;background:#FFFFFF;" version="1.1" viewBox="0 0 339 280" width="339px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="259.3965" style="stroke:#181818;stroke-width:1.5;" width="328.5" x="5" y="15"/><path d="M130,15 L130,24.4883 L120,34.4883 L5,34.4883 " fill="none" style="stroke:#181818;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115" x="8" y="29.5352">4.4.2 nextRound</text><rect fill="#FFFFFF" height="88.6211" style="stroke:#181818;stroke-width:1.0;" width="10" x="148" y="150.2871"/><rect fill="#FFFFFF" height="14" style="stroke:#181818;stroke-width:1.0;" width="10" x="255" y="203.9082"/><rect fill="none" height="60.6211" style="stroke:#000000;stroke-width:1.5;" width="224" x="93.5" y="165.2871"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="53" x2="53" y1="118.9766" y2="256.9082"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="152.5" x2="152.5" y1="118.9766" y2="256.9082"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="259.5" x2="259.5" y1="118.9766" y2="256.9082"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="15" y="116.0234">Controller</text><ellipse cx="53" cy="50.9883" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M53,58.9883 L53,85.9883 M40,66.9883 L66,66.9883 M53,85.9883 L40,100.9883 M53,85.9883 L66,100.9883 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><rect fill="#E2E2F0" height="30.4883" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="99" x="103.5" y="87.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="110.5" y="108.0234">c: Controller</text><rect fill="#E2E2F0" height="30.4883" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="95" x="212.5" y="87.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81" x="219.5" y="108.0234">v: Virologist</text><rect fill="#FFFFFF" height="88.6211" style="stroke:#181818;stroke-width:1.0;" width="10" x="148" y="150.2871"/><rect fill="#FFFFFF" height="14" style="stroke:#181818;stroke-width:1.0;" width="10" x="255" y="203.9082"/><polygon fill="#181818" points="136,146.2871,146,150.2871,136,154.2871,140,150.2871" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="53" x2="142" y1="150.2871" y2="150.2871"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="76" x="62.5" y="145.5449">nextRound()</text><path d="M93.5,165.2871 L167.5,165.2871 L167.5,172.5977 L157.5,182.5977 L93.5,182.5977 L93.5,165.2871 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="60.6211" style="stroke:#000000;stroke-width:1.5;" width="224" x="93.5" y="165.2871"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="29" x="108.5" y="178.8555">loop</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="128" x="182.5" y="177.9219">[for all players: Player]</text><polygon fill="#181818" points="243,199.9082,253,203.9082,243,207.9082,247,203.9082" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="158" x2="249" y1="203.9082" y2="203.9082"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="56" x="178.5" y="199.166">myTurn()</text><polygon fill="#181818" points="169,213.9082,159,217.9082,169,221.9082,165,217.9082" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="163" x2="259" y1="217.9082" y2="217.9082"/><polygon fill="#181818" points="64,234.9082,54,238.9082,64,242.9082,60,238.9082" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="58" x2="152" y1="238.9082" y2="238.9082"/><!--MD5=[6f3f07ded1d174c79cc0cceca19e719e]
+@startuml
+hide footbox
+skinparam sequenceMessageAlign center
+
+mainframe 4.4.2 nextRound
+
+actor Controller as cr
+participant "c: Controller" as c
+participant "v: Virologist" as v
+cr -> c ++ : nextRound()
+    loop for all players: Player
+        c -> v ++ :myTurn()
+        return
+    end
+return
+@enduml
+
+PlantUML version 1.2022.12(Sun Oct 23 21:12:26 TRT 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: TR
+--></g></svg>

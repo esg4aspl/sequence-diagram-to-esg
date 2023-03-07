@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+skinparam shadowing false
+skinparam ParticipantBackgroundColor white
+
+autonumber
+autoactivate on
+
+Actor User
+User -> ":Server": getBookDetails()
+":Server" -> ":Database": getBookNames()
+":Database" --> ":Server"
+":Server" -> ":Database": getBookPrices()
+":Database" --> ":Server"
+":Server" --> User
+@enduml

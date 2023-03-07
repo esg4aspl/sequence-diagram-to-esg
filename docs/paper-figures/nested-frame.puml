@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+'skinparam monochrome true
+skinparam shadowing false
+skinparam ParticipantBackgroundColor white
+'autonumber
+
+loop guard1
+A -> B: message1
+opt guard2
+A -> B: message2
+B -> A: message3
+end
+end
+@enduml
