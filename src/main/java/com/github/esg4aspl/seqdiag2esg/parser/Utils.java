@@ -105,7 +105,12 @@ public class Utils {
             }
             return rhs.substring(1, quoteEnd);
         }
-        return rhs.split("\\W")[0];
+        String[] splitRhs = rhs.split("\\W");
+        if(splitRhs.length == 0){
+            return rhs;
+        } else {
+            return splitRhs[0];
+        }
     }
 
     static String sanitizeMessageLine(String line) {
@@ -141,7 +146,7 @@ public class Utils {
         // multiline notes end with 'end note'
         // exclude them
         // TODO: consider adding a new frame parser for multiline entities such as note that would consume related lines
-        return line.startsWith("end") && !line.equals("end note");
+        return line.startsWith("end") && !line.equals("end note") && !line.equals("end box");
     }
 
     static String getFrameGuard(ElementType type, String line) {
