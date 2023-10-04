@@ -35,3 +35,12 @@ CLI tool works on a single file. Use `find` and `xargs` to quickly iterate over 
 ```bash
 find docs/examples/Tschonti_503-service-unavailable/ -name '*.puml' | xargs -I{} java -jar target/SequenceDiagram-to-ESG-Transformer-1.0-SNAPSHOT-jar-with-dependencies.jar {} -f{}_frame.json
 ```
+
+To clone from github, batch-generate test sequences and collect metadata:
+```bash
+sh ./docs/fetchAndGenerateTS.sh <git repo URL>
+find . -name 'sd2esgresults.txt' | 
+  xargs -I{} awk '{ printf "%s ", $0 } END{print ""}' {} |
+  awk '{print $1, $3, $8, $9, $11, $12, $14, $15}' |
+  sort | uniq -u > summary.txt
+```
